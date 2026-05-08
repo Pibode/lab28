@@ -3,24 +3,27 @@ const body = document.body
 
 
 const myAlert = (text, name = 'Alert') => {
+        
         const oldAlert = document.querySelector('.custom-alert-container')
         if (oldAlert) oldAlert.remove()
-        
-        const overlay = document.createElement('div')
-    overlay.className = 'custom-alert-overlay'
-    Object.assign(overlay.style, {
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.6)', 
-        zIndex: '999',
 
-    })
+        const overlay = document.createElement('div')
+        overlay.className = 'custom-alert-overlay'
+
+        Object.assign(overlay.style, {
+                position: 'fixed',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                zIndex: '999',
+
+        })
         // контейнер
         const container = document.createElement('div')
         container.className = 'custom-alert-container'
+
         container.style.boxSizing = 'border-box'
         container.style.minWidth = '500px'
         container.style.minHeight = '200px'
@@ -79,9 +82,9 @@ const myAlert = (text, name = 'Alert') => {
                 container.remove()
                 overlay.remove()
         })
-        
+
+        body.append(overlay)
         body.append(container)
-        body.append(overlay) 
+
 }
 
-myAlert(`hello, wold`)
